@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Profile - Crypto Learning</title>
+    <link rel="shortcut icon" href="img/bg2.JPG" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<style>
+    body{
+        display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    }
+</style>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-title">
+                <img src="img/logo.svg"alt="Crypto Learning Logo" class="logo">
+            
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Головна</a></li>
+                    <li><a href="spot.html">Спотова торгівля</a></li>
+                    <li><a href="futures.html">Ф'ючерсна торгівля</a></li>
+                    <li><a href="videoTraining.html">Тренінги</a></li>
+                    <li><a href="about.html">Про нас</a></li>
+                    <li><a href="contact.html">Контакти</a></li>
+                    <li><a href="profile.html">Профіль</a></li>
+                    <li><a href="login.html">Вийти</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="./img/me.jpg" alt="Profile Picture" class="profile-picture">
+            <h1 class="profile-name">andreikoo3</h1>
+            <p class="profile-username">@andreikoo3</p>
+        </div>
+        <div class="profile-details">
+            <h2>Опис</h2>
+            <p>Ентузіаст криптовалюти, інвестор і розробник блокчейну. Захоплюється децентралізацією та майбутнім фінансів.</p>
+            <h2>Надає перевагу:</h2>
+            <ul class="crypto-holdings">
+                <li>Bitcoin (BTC)</li>
+                <li>Ethereum (ETH)</li>
+                <li>Ripple (XRP)</li>
+            </ul>
+        </div>
+        <div class="profile-footer">
+            <button id="contactButton">Гаманець</button>
+            <button id="editButton">Редагувати</button>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Crypto Learning. Усі права захищено. <a href="index.html">Повернутися на головну</a></p>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+    <script src="animation.js"></script>
+</body>
+</html>

@@ -1,0 +1,331 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background: black;
+    margin: 0;
+    padding: 0;
+    position: relative;
+}
+
+.dot-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Щоб крапки не реагували на події миші та не перекривали контент */
+}
+.block111{
+    /* border:2px solid white; */
+    margin: 100px;
+    padding: 0px 200px 0px 200px;
+}
+.block111 h3{
+    color:#fff;
+    padding: 20px;
+    line-height: 1.5;
+    text-align: center;
+}
+.dot {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #fff; /* Початковий колір крапочок */
+    animation: appearDisappear 5s infinite; /* Анімація */
+}
+
+@keyframes appearDisappear {
+    0%, 20% {
+        opacity: 0; /* Початкова прозорість - крапочка невидима */
+    }
+    25%, 75% {
+        opacity: 1; /* Колір крапочки повністю видно */
+    }
+    80%, 100% {
+        opacity: 0; /* Колір крапочки зникає */
+    }
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+/* Адаптивні стилі для мобільних пристроїв */
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+    }
+
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+    .block111{
+        margin-top:260px;
+        padding: 0;
+    }
+}
+
+/* Показувати меню при натисканні на меню toggle */
+#mobile-menu.active + nav ul {
+    display: flex;
+}
+
+
+.logo-title {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 40px; /* Збільште або зменште потрібний розмір */
+    height: auto; /* Підтримуйте пропорції */
+    margin-right: 10px;
+    transform: scale(4); /* Збільшення в 1.5 раза */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+}
+
+header {
+    background-color: #000000;
+    border-bottom: 1px solid #ddd;
+    transition: box-shadow 0.3s ease;
+    animation: changeBorderColor 2s infinite alternate;
+    color: #fff;
+    padding: 1em 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav li {
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+main {
+    max-width: 800px;
+    margin: 80px auto 20px;
+}
+
+.article-block {
+    border: 1px solid #ddd;
+    background-color: rgba(0, 0, 0, 0.593);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    padding: 20px;
+    transition: box-shadow 0.3s ease;
+    animation: changeBorderColor 2s infinite alternate;
+}
+@keyframes changeBorderColor {
+    0% {
+        border-color: #3498db; /* Початковий колір границі */
+    }
+    50% {
+        border-color: #e74c3c; /* Кінцевий колір границі */
+    }
+    100% {
+        border-color: #3498db; /* Повернення до початкового коліру границі */
+    }
+}
+
+.article-block:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.article-block h2 {
+    color: #ececec;
+    margin-bottom: 10px;
+}
+
+.article-block p {
+    color: #eaeaea;
+    margin-bottom: 15px;
+}
+
+.article-block a {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.article-block a:hover {
+    background-color: #000000;
+}
+
+
+footer {
+    background-color: #0c0c0c;
+    color: #fff;
+    padding: 1em 0;
+    bottom: 0;
+    width: 100%;
+}
+a {
+    color: #3498db; /* Початковий колір тексту посилань */
+    text-decoration: none; /* Забираємо підкреслення посилань */
+    position: relative; /* Встановлюємо позицію для псевдоелемента */
+    transition: color 0.3s ease; /* Плавний перехід для зміни кольору */
+}
+
+a::before {
+    content: '';
+    position: absolute;
+    bottom: -2px; /* Розміщуємо підкреслення під текстом */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #ffffff; /* Колір підкреслення */
+    transform: scaleX(0); /* Початкова ширина підкреслення - нуль */
+    transition: transform 0.3s ease; /* Плавний перехід для анімації */
+}
+
+a:hover {
+    color: #ffffff; /* Колір тексту при наведенні */
+}
+
+a:hover::before {
+    transform: scaleX(1); /* Збільшуємо ширину підкреслення до 100% */
+}
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color:  #ffffff;
+    text-decoration: underline;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: #2070a0;
+}
+
+
+
+
+.profile-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    padding: 20px;
+    margin-top: 73px;
+    margin-left:25px;
+}
+
+.profile-header {
+    margin-bottom: 20px;
+}
+
+.profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile-name {
+    margin: 10px 0 0;
+}
+
+.profile-username {
+    color: #888;
+    margin: 5px 0 20px;
+}
+
+.profile-details h2 {
+    color: #333;
+    margin: 10px 0;
+}
+
+.profile-details p,
+.profile-details ul {
+    color: #666;
+    margin: 10px 0;
+}
+
+.crypto-holdings {
+    list-style: none;
+    padding: 0;
+}
+
+.crypto-holdings li {
+    background-color: #f9f9f9;
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.profile-footer {
+    margin-top: 20px;
+}
+
+#contactButton, #editButton {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#contactButton:hover {
+    background-color: #45a049;
+}
+#editButton:hover {
+    background-color: #45a049;
+}

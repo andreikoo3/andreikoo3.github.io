@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Деталі - Crypto Learning</title>
+    <link rel="shortcut icon" href="img/bg2.JPG" type="image/x-icon">
+    <style>
+        main {
+            text-align: center;
+        }
+
+        main article {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        main h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        main p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        main a {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #131313e8;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        main a:hover {
+            background-color: #2070a0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo-title">
+                <img src="img/logo.svg"alt="Crypto Learning Logo" class="logo">
+            
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Головна</a></li>
+                    <li><a href="spot.html">Спотова торгівля</a></li>
+                    <li><a href="futures.html">Ф'ючерсна торгівля</a></li>
+                    <li><a href="videoTraining.html">Тренінги</a></li>
+                    <li><a href="about.html">Про нас</a></li>
+                    <li><a href="contact.html">Контакти</a></li>
+                    <li><a href="profile.html">Профіль</a></li>
+                    <li><a href="login.html">Вийти</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <article>
+            <h2 id="article-title"></h2>
+            <div id="article-details"></div>
+            <br>
+            <a href="index.html">Повернутися на головну сторінку</a>
+        </article>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Crypto Learning. Усі права захищено.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const index = urlParams.get('index');
+
+            if (index !== null) {
+                fetch('articles.json')
+                    .then(response => response.json())
+                    .then(data => {
+                        const article = data.articles[index];
+                        if (article) {
+                            displayArticleDetails(article);
+                        } else {
+                            displayError();
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching article details:', error);
+                        displayError();
+                    });
+            } else {
+                displayError();
+            }
+
+            function displayArticleDetails(article) {
+                document.getElementById('article-title').innerText = article.title;
+
+                const articleDetailsContainer = document.getElementById('article-details');
+                articleDetailsContainer.innerHTML = `<p>${article.summary}</p><div>${article.description}</div>`;
+            }
+
+            function displayError() {
+                document.getElementById('article-details').innerText = 'Не вдалося завантажити деталі статті.';
+            }
+        });
+    </script>
+</body>
+</html>
